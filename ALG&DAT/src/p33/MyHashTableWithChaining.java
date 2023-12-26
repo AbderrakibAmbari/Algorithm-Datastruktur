@@ -49,6 +49,14 @@ public class MyHashTableWithChaining<K,V> {
 		bucketArray.set(bucketIndex, newNode);
 	}
 	
+	private int getHashIndex(K key) {
+		int hashValue =key.hashCode()%numBuckets;
+		if(hashValue<0) {
+			hashValue=hashValue+numBuckets;
+		}
+		
+		return hashValue;
+	}
 	public V remove(K key ) {
 		int bucketIndex=getHashIndex(key);
 		HashNode<K,V>head =bucketArray.get(bucketIndex);
@@ -67,7 +75,8 @@ public class MyHashTableWithChaining<K,V> {
 		}
 		return null;
 	}
-	
+	//second add
+	/*
 	public void add(K key , V value) {
 		size++;
 		head=bucketArray.get(numBuckets);
@@ -91,4 +100,5 @@ public class MyHashTableWithChaining<K,V> {
 			}
 		}
 	}
+	*/
 }
