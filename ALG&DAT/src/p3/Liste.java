@@ -14,9 +14,17 @@ public class Liste {
 
         return l;
     }
-
-    int hashFunktion (String x,int b ) {
+//aenderung in der Hashfunktion
+   /* int hashFunktion (String x,int b ) {
         return b-1;
+    }
+    */
+    long hashFunktion(String s,int b) {
+    	int g=31;
+    	long hash=0;
+    	for(int i=0;i<s.length();i++)
+    		hash=g*hash+s.charAt(i);
+    	return hash%b;
     }
 
     boolean istGueltigePosition (int p) {
